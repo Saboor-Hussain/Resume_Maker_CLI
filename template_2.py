@@ -26,7 +26,6 @@ def create_resume(user_data):
     skills = user_data['skills']
     languages = user_data['languages']
 
-    # Create the main window
     root = tk.Tk()
     root.title("Resume Template")
     root.geometry("794x1123")
@@ -93,15 +92,12 @@ def add_experience(frame, experiences):
         job_frame = tk.Frame(experience_frame, bg=HIGHLIGHT_COLOR)
         job_frame.pack(pady=10, fill="x", expand=True)
 
-        # Add job title label
         job_title_label = tk.Label(job_frame, text=company, font=FONT, fg=PRIMARY_COLOR, bg=HIGHLIGHT_COLOR, anchor="w")
         job_title_label.pack(fill="x", padx=PADDING_X, pady=(PADDING_Y, 0), expand=True)
 
-        # Add position and date label
         job_position_date_label = tk.Label(job_frame, text=f"{position} ({date})", font=FONT, bg=HIGHLIGHT_COLOR, anchor="w")
         job_position_date_label.pack(fill="x", padx=PADDING_X, pady=(0, PADDING_Y), expand=True)
 
-        # Add responsibilities
         for responsibility in responsibilities:
             responsibility_label = tk.Label(job_frame, text=f"• {responsibility}", font=FONT, wraplength=760, justify="left", bg=HIGHLIGHT_COLOR, anchor="w")
             responsibility_label.pack(fill="x", padx=PADDING_X, pady=(0, PADDING_Y), expand=True)
