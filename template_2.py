@@ -33,23 +33,18 @@ def create_resume(user_data):
     root.resizable(False, True)
     root.configure(bg=SECONDARY_COLOR)
 
-    # Create a canvas for scrolling
     canvas = tk.Canvas(root, bg=SECONDARY_COLOR)
     canvas.pack(side="left", fill="both", expand=True)
 
-    # Add a scrollbar
     scrollbar = tk.Scrollbar(root, orient="vertical", command=canvas.yview)
     scrollbar.pack(side="right", fill="y")
 
-    # Configure the canvas to work with the scrollbar
     canvas.configure(yscrollcommand=scrollbar.set)
     canvas.bind('<Configure>', lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
 
-    # Create a frame inside the canvas
     frame = tk.Frame(canvas, bg=SECONDARY_COLOR)
     canvas.create_window((0, 0), window=frame, anchor="nw")
 
-    # Call functions to add resume sections
     add_personal_info(frame, name, email, phone, website, job_title)
     add_summary(frame, summary_text)
     add_experience(frame, experiences)
