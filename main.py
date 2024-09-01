@@ -54,9 +54,6 @@ def main():
     user_data['summary'] = get_summary_input()
     print()
 
-    user_data['experience'] = get_experience_input()
-    print()
-
     user_data['education'] = {
         'education': get_input("Enter your degree: "),
         'school': get_input("Enter your school/university: "),
@@ -64,13 +61,16 @@ def main():
     }
     print()
 
+    user_data['experience'] = get_experience_input()
+    print()
+
+
     user_data['skills'] = get_list_input("Enter your skills (one per line): ")
     print()
 
     user_data['languages'] = get_list_input("Enter languages you know (one per line): ")
     print()
 
-    # Generate the resume using the provided data
     resume_template.create_resume(user_data)
 
 if __name__ == "__main__":
